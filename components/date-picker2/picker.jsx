@@ -220,13 +220,13 @@ class Picker extends React.Component {
      */
     getInitValue = () => {
         const { props } = this;
-        const { type, value, defaultValue } = props;
+        const { type, value, defaultValue, format } = props;
 
         let val = type === DATE_PICKER_TYPE.RANGE ? [null, null] : null;
 
         val = 'value' in props ? value : 'defaultValue' in props ? defaultValue : val;
 
-        return this.checkValue(val);
+        return this.checkValue(val, false, format);
     };
 
     /**
